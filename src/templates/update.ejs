@@ -1,0 +1,44 @@
+<%- include("_header") %>
+
+<div class="write">
+  <img
+    class="writeImg"
+    src="https://images.unsplash.com/photo-1505075106905-fb052892c116?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770"
+    alt="writeImg"
+  />
+  <form action="/update/<%= model._id %>" method="post" class="writeForm">
+    <div class="writeFormGroup">
+      <input
+        type="text"
+        placeholder="Title"
+        class="writeInput"
+        autofocus="true"
+        name="Title"
+        value="<%= model.title %>"
+      />
+    </div>
+    <div class="writeFormGroup">
+      <input
+        type="text"
+        placeholder="Username"
+        class="writeInput"
+        autofocus="true"
+        name="Username"
+        value="<%= username %>"
+      />
+    </div>
+    <div class="writeFormGroup">
+      <textarea
+        placeholder="Write your contents here!"
+        type="text"
+        class="writeInput writeText"
+        name="Contents"
+      >
+<%= model.contents %></textarea
+      >
+    </div>
+    <button class="writeSubmit" type="submit">Update</button>
+  </form>
+</div>
+
+<%- include("_footer") %>

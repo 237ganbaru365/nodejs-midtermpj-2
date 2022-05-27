@@ -1,0 +1,16 @@
+<%- include("_header") -%>
+
+<main class="register">
+  <span class="registerTitle">Register</span>
+  <form action="/register" method="post" class="registerForm">
+    <label>Username</label>
+    <input type="text" placeholder="Enter your username" name="username" />
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" name="email" />
+    <label>Password</label>
+    <input type="password" placeholder="Enter your password" name="password" />
+    <button type="submit" class="registerSubmit">Register</button>
+  </form>
+</main>
+
+<%- include("_footer") -%>

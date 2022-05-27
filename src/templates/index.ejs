@@ -1,0 +1,45 @@
+<%- include("_header") -%>
+
+<div class="posts">
+  <% for(const post of model){ %>
+  <div class="post">
+    <img
+      class="postImg"
+      src="https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770"
+      alt="postImg"
+    />
+    <div class="postInfo">
+      <div class="postCats">
+        <a href="/comment/<%= post._id %>" class="postCat">
+          <i class="bi bi-chat-left-dots"></i>
+        </a>
+        <a href="/update/<%= post._id %>" class="postCat">
+          <i class="bi bi-pencil-square"></i>
+        </a>
+        <a href="/delete/<%= post._id %>?_method=DELETE" class="postCat">
+          <i class="bi bi-trash3"></i>
+        </a>
+      </div>
+      <span class="postTitle"><%= post.title %></span>
+      <hr />
+      <span class="postDate">
+        <% const ts = post.updatedAt.toString().split(' ') %> <% const time =
+        ts.slice(0, 5).join(' ') %> <%= time %></span
+      >
+      <p class="postDesc"><%= post.contents %></p>
+    </div>
+    <div class="d-flex justify-content-between align-items-center px-4">
+      <% if(favs.map(fav => fav.id).includes(post._id.valueOf())){ %>
+      <a href="/deletefav/<%= post._id %>" class="btn btn-sm">
+        <i class="bi bi-heart-fill"></i>
+      </a>
+      <% }else{ %>
+      <a href="/favorite/<%= post._id %>" class="btn btn-sm">
+        <i class="bi bi-heart"></i>
+      </a>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+</div>
+<%- include("_footer") -%>

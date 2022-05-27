@@ -1,0 +1,14 @@
+<%- include("_header") -%>
+
+<main class="login">
+  <span class="loginTitle">Login</span>
+  <form action="/login" method="post" class="loginForm">
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" name="email" />
+    <label>Password</label>
+    <input type="password" placeholder="Enter your password" name="password" />
+    <button type="submit" class="loginSubmit">Login</button>
+  </form>
+</main>
+
+<%- include("_footer") -%>
